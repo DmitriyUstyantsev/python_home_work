@@ -3,10 +3,18 @@
 # Пользователь вводит 2 числа. n — кол-во элементов первого множества. m — кол-во элементов второго множества.
 # Затем пользователь вводит сами элементы множеств.
 
-from random import randint
-n_set = set(randint(1, 20) for i in range(int(input('Введите кол-во элементов первого множества: '))))
-print(n_set)
-m_set = set(randint(1, 20) for i in range(int(input('Введите кол-во элементов второго множества: '))))
-print(m_set)
-s_set = sorted(n_set.intersection(m_set))
-print(*s_set)
+n = (int(input('Введите количество элементов первого множества: ')))
+m = (int(input('Введите количество элементов второго множества: ')))
+list_n = [] 
+list_m = []
+print('Введите целые числа первого множества:')
+for i in range(n):
+    list_n.append(int(input()))
+    i += i
+print('Введите целые числа второго множества:')
+for i in range(m):
+    list_m.append(int(input()))
+    i += i
+print(list_n)
+print(list_m)
+print(sorted(set(list_n).intersection(set(list_m))))

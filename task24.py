@@ -10,16 +10,19 @@
 # Напишите программу для нахождения максимального числа ягод, которое может собрать за один заход собирающий модуль,
 # находясь перед некоторым кустом заданной во входном файле грядки.
 
-n = 5 # кустов
-from random import randint
-list_1 = list(randint(1, 5) for i in range(int(input('Введите кол-во кустов: '))))
-print(list_1)
-a = int(input('Введите № куста: '))
-res = 0
-if a == 1:
-    res = list_1[0] + list_1[1] + list_1[-1]
-elif a == len(list_1):
-    res = list_1[-2] + list_1[-1] + list_1[0]
-else:
-    res = list_1[a-1] + list_1[a-2] + list_1[a]
-print(res, 'ягод')
+n = (int(input('Введите количество кустов на грядке: ')))
+my_list = []
+for i in range(n):
+    my_list.append(int(input('Вводите последовательно число ягод на кустах: ')))
+    i += i
+print(my_list)
+my_sum = []
+for i in range(n):
+    a,b,c = i,i+1,i+2
+    if i == n-2:
+        c = 0
+    elif i == n-1:
+        b,c = 0,1 
+    my_sum.append(my_list[a] + my_list[b] + my_list[c])
+    i += i
+print(f'максимальное число ягод {max(my_sum)}')
